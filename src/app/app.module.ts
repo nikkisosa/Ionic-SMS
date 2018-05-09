@@ -6,15 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AndroidPermissions} from '@ionic-native/android-permissions';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
+import { MenuComponent } from "../components/menu/menu";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{scrollAssist:false,autoFocusAssist:false}),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

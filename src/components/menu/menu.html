@@ -1,0 +1,41 @@
+<ion-menu type="overlay" [content]="content" style="padding:0%; height:100vh !important; overflow:hidden !important;">
+  
+  <ion-header>
+    <ion-navbar color="primary" class="menu-header">
+      <ion-grid>
+        <ion-row>
+          <ion-col >
+            <ion-title text-center>IONIC SMS TESTER</ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </ion-navbar>
+  </ion-header>
+  <ion-content style="height:100vh !important; overflow:hidden !important;">
+    <ion-list no-lines style="min-height:90% !important;max-height:90% !important; margin:0%;">
+      
+      <button ion-item class="btn-bottom-style" (click)="menu('dev')">
+        <label>Send</label>
+      </button>
+      <button ion-item class="btn-bottom-style" (click)="menu('dev')">
+        <label>Read Inbox</label>
+      </button>
+      <button ion-item class="btn-bottom-style" (click)="menu('dev')">
+        <label>Sent</label>
+      </button>
+      <button ion-item class="btn-bottom-style" (click)="menu('dev')">
+        <label>Draft</label>
+      </button>
+      <button ion-item class="btn-bottom-style" (click)="menu('otp')">
+        <label>Test OTP</label>
+      </button>
+      <button ion-item class="btn-bottom-style" (click)="menu('about')">
+        <label>About</label>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

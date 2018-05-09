@@ -1,20 +1,60 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      SMS OTP RECEIVER TESTER
-    </ion-title>
+<ion-header >
+  <ion-navbar color="primary">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col  col-2>
+          <button ion-button menuToggle col-12 (click)="menus()">
+            <ion-icon name="md-menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-8>
+          <ion-title>
+            OTP TEST
+          </ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+   
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-label>Sender number:</ion-label>
-<ion-item>
-  
-  <ion-input type="tel" placeholder="include country code: +639999999999" [(ngModel)]="code"></ion-input>
-</ion-item>
-<ion-label>Receive OTP:</ion-label>
-<ion-item>
-  <ion-input type="text" [(ngModel)]="receive_otp" maxLength="6"></ion-input>
-</ion-item>
+<menu></menu>
 
+<ion-content padding class="scroll-content">
+  <ion-grid>
+    <div style="background-color: #bfebff;padding:2%">
+      <label>Set otp range to extract the code</label>
+    </div>
+    <ion-row col-10>
+      <ion-label>Start:</ion-label>
+      <ion-input color="secondary" type="tel" maxLength="1" placeholder="0" [(ngModel)]="indexOne" class="input-range-index" ></ion-input>
+      <ion-label>end:</ion-label>
+      <ion-input color="primary" type="tel" maxLength="1" placeholder="0" [(ngModel)]="indexTwo" class="input-range-index" ></ion-input>
+    </ion-row>
+  </ion-grid>
+  <ion-list >
+    
+    <ion-item class="item-lines item-padding">
+      <ion-label>Sender number:</ion-label>
+      <ion-input type="tel" placeholder="+639999999999" [(ngModel)]="code"></ion-input>
+    </ion-item>
+    <ion-item class="item-lines item-padding">
+      <ion-label>Receive OTP:</ion-label>
+      <ion-input type="text" [(ngModel)]="receive_otp" maxLength="6" readonly></ion-input>
+    </ion-item>
+</ion-list>
+  
+<ion-item class="item-lines item-padding" >
+ <ion-label>Watch incoming message</ion-label>
+  <ion-toggle checked="false" (ionChange)="watchSwitch()"></ion-toggle>
+</ion-item>
+<br>
+<br>
+
+<ion-label>Console log:</ion-label>
+<ion-list class="console-list">
+  <ion-label style="color:#32db64;font-size: 12px; " *ngFor="let data of logs"> {{data.output}}</ion-label>
+</ion-list>
 </ion-content>
